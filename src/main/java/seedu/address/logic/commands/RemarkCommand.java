@@ -11,6 +11,9 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
 
+/**
+ * Remark command
+ */
 public class RemarkCommand extends Command {
     public static final String COMMAND_WORD = "remark";
 
@@ -29,6 +32,11 @@ public class RemarkCommand extends Command {
     private final Index index;
     private final Remark remark;
 
+    /**
+     * Constructor
+     * @param index
+     * @param remark
+     */
     public RemarkCommand(Index index, Remark remark) {
         requireAllNonNull(index, remark);
 
@@ -60,7 +68,7 @@ public class RemarkCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = !remark.getRemark().isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
         return String.format(message, Messages.format(personToEdit));
     }
 
